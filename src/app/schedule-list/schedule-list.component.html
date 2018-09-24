@@ -1,0 +1,16 @@
+<thf-list (t-show-more)="showMoreFunction()" [t-show-more-disabled]="showMoreDisabled">
+  <thf-list-item *ngFor="let item of data; let i = index" [t-title]="item.name" [t-index]="i" [t-actions]="eventsObject">
+    <thf-list-item-content style="display:flex;flex-flow: row wrap;">
+      <thf-avatar t-size="lg" [t-src]="item.imgSrc" style="width: 10%;"></thf-avatar>      
+      <thf-info t-label="Registro" [t-value]="item.register" style="width: 10%;"></thf-info>
+      <thf-info t-label="Especialidades" [t-value]="item.specialty" style="width: 20%;"></thf-info>
+      <thf-info t-label="Localização" [t-value]="item.address" style="width: 25%;"></thf-info>
+      <thf-info t-label="Telefone" [t-value]="item.phoneNumber" style="width: 20%; padding-left: 1rem;"></thf-info>
+      <thf-list-item-content style="width:100%; padding-left: 10rem">
+        <thf-button *ngFor="let appointment of item.appointments; let j = index" [t-disabled]="appointment.locked"
+          [t-label]="appointment.start_time" t-small="true">
+        </thf-button>
+      </thf-list-item-content>
+    </thf-list-item-content>
+  </thf-list-item>
+</thf-list>
